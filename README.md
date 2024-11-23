@@ -1,6 +1,6 @@
 # Phoca - building web apps
 
-For more infomration, see:
+For more information, see:
 - [Phoca](https://www.phoca.cz) website
 
 If you have any question, please use:
