@@ -1,0 +1,83 @@
+name: Update README Repository List
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Spustí se automaticky každý den o půlnoci
+  workflow_dispatch: # Umožňuje spustit akci kdykoliv ručně přes web GitHubu
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Oprávnění pro zápis do vašeho README.md
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Update README with repositories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -c '
+          import urllib.request
+          import json
+          import os
+
+          token = os.environ.get("GITHUB_TOKEN")
+          headers = {"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
+          
+          # Stáhne veřejné repozitáře uživatele PhocaCz
+          url = "https://api.github.com/users/PhocaCz/repos?per_page=100&sort=updated"
+          req = urllib.request.Request(url, headers=headers)
+          
+          with urllib.request.urlopen(req) as response:
+              repos = json.loads(response.read().decode())
+
+          # Vynechá profilový repozitář PhocaCz a soukromé repozitáře
+          repos = [r for r in repos if r["name"].lower() != "phocacz" and not r["private"]]
+
+          # Seřazení repozitářů podle počtu hvězdiček sestupně
+          repos = sorted(repos, key=lambda x: x["stargazers_count"], reverse=True)
+
+          # Sestavení tabulky v Markdownu
+          content = "\n| Repository | Description | Stars |\n| --- | --- | --- |\n"
+          for r in repos:
+              name = r["name"]
+              html_url = r["html_url"]
+              desc = (r["description"] or "").replace("|", "-") # Ošetření znaků pro tabulku
+              stars = r["stargazers_count"]
+              content += f"| [{name}]({html_url}) | {desc} | ⭐ {stars} |\n"
+
+          # Načtení stávajícího README.md
+          with open("README.md", "r", encoding="utf-8") as f:
+              readme = f.read()
+
+          # Nahrazení obsahu mezi značkami
+          start_tag = "<!-- REPO_LIST:START -->"
+          end_tag = "<!-- REPO_LIST:END -->"
+          
+          if start_tag in readme and end_tag in readme:
+              parts = readme.split(start_tag)
+              before = parts[0]
+              after = parts[1].split(end_tag)[1]
+              new_readme = before + start_tag + "\n" + content + "\n" + end_tag + after
+              
+              with open("README.md", "w", encoding="utf-8") as f:
+                  f.write(new_readme)
+              print("README.md bylo úspěšně aktualizováno.")
+          else:
+              print("Chyba: Značky <!-- REPO_LIST:START --> nebyly v README.md nalezeny.")
+          '
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.readme.generator"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update repository list" && git push)
