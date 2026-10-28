@@ -14,5 +14,8 @@ Everything you find here is developed, distributed, and maintained strictly as *
 ### 🤝 Join the Movement
 Open collaboration is highly valued. Whether it involves fixing a bug, suggesting a feature, or improving documentation, volunteer contributions are what keep these projects alive.
 
+<!-- REPO_LIST:START -->
+<!-- REPO_LIST:END -->
+
 ---
 *This group of volunteers and these repositories operate as a shared community resource dedicated to the global open-source ecosystem.*
