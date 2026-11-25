@@ -96,6 +96,7 @@ Open collaboration is highly valued. Whether it involves fixing a bug, suggestin
 | [PhocaCartInvoiceZugferdPlugin](https://github.com/PhocaCz/PhocaCartInvoiceZugferdPlugin) | Phoca Cart Invoice - ZUGFeRD Plugin - ZUGFeRD/Factur-X electronic invoice format plugin for Phoca Cart | ⭐ 1 |
 | [PhocaCartFreeShippingInfoPlugin](https://github.com/PhocaCz/PhocaCartFreeShippingInfoPlugin) | Phoca Cart View - Free Shipping Info Plugin - this plugin displays information about remaining cost for customer to avail free shipping in Phoca Cart. | ⭐ 1 |
 | [PhocaDocumentation](https://github.com/PhocaCz/PhocaDocumentation) | Phoca Documentation is Joomla! CMS extension. Component which displays a list of documents on website. | ⭐ 1 |
+| [PhocaCodeSearchPresets](https://github.com/PhocaCz/PhocaCodeSearchPresets) | Two buttons in the Search view title bar give you one-click access to saved glob patterns for the **files to include** and **files to exclude** fields. | ⭐ 0 |
 | [PhocaCartSubscriptionTaskPlugin](https://github.com/PhocaCz/PhocaCartSubscriptionTaskPlugin) | Phoca Cart Subscription Task Plugin - subscription Phoca Cart task plugin. | ⭐ 0 |
 | [PhocaCartBookingSystemPlugin](https://github.com/PhocaCz/PhocaCartBookingSystemPlugin) | Phoca Cart Booking System Plugin - booking system plugin for Phoca Cart. | ⭐ 0 |
 | [PhocaCartSubscriptionSystemPlugin](https://github.com/PhocaCz/PhocaCartSubscriptionSystemPlugin) | Phoca Cart Subscription System Plugin - subscription system plugin for Phoca Cart. | ⭐ 0 |
@@ -117,7 +118,6 @@ Open collaboration is highly valued. Whether it involves fixing a bug, suggestin
 | [PhocaMosaicButtonPlugin](https://github.com/PhocaCz/PhocaMosaicButtonPlugin) | Phoca Mosaic Button Plugin is a Joomla! plugin which enables a Phoca Mosaic button in editor. With help of this button you can easily add images from Phoca Mosaic Explorer to your articles. | ⭐ 0 |
 | [PhocaCartFacebookConversionPlugin](https://github.com/PhocaCz/PhocaCartFacebookConversionPlugin) | Phoca Cart - Facebook (Meta Pixel) Conversion Tracking Plugin - plugin that inserts Facebook conversion tracking code into the website. | ⭐ 0 |
 | [PhocaMDFieldsPlugin](https://github.com/PhocaCz/PhocaMDFieldsPlugin) | Phoca MD Fields Plugin - provides a custom Markdown field for Joomla articles. Instead of using a WYSIWYG editor like TinyMCE, you write your content in pure Markdown. On saving the article, the plugin automatically converts your Markdown into clean HTML and injects it directly into the standard Joomla Introtext and Fulltext fields. | ⭐ 0 |
-| [PhocaCartTaskPlugin](https://github.com/PhocaCz/PhocaCartTaskPlugin) |  | ⭐ 0 |
 
 <!-- REPO_LIST:END -->
 
